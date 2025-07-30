@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Love - Kasih Sayang Abadi</title>
+    <title>Untuk Lya - Cinta yang Bersemi</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,259 +14,69 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff6b9d, #c44569, #f8b500, #ff6348);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .title {
-            font-size: 3.5rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
-            animation: pulse 2s infinite;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            font-style: italic;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .love-card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .love-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-        }
-
-        .photo-section {
-            text-align: center;
-            position: relative;
-        }
-
-        .photo-container {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid #ff6b9d;
-            box-shadow: 0 10px 30px rgba(255,107,157,0.3);
-            position: relative;
-        }
-
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff6b9d, #c44569);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .photo-placeholder:hover {
-            background: linear-gradient(45deg, #c44569, #ff6b9d);
-        }
-
-        .uploaded-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .love-message {
-            color: #2c3e50;
-            line-height: 1.8;
-        }
-
-        .love-message h3 {
-            color: #c44569;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .features-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.9);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            background: rgba(255,255,255,1);
-            transform: scale(1.05);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .feature-title {
-            color: #2c3e50;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .counter-section {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .counter {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-        }
-
-        .counter-item {
-            padding: 15px;
-        }
-
-        .counter-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #c44569;
-            display: block;
-        }
-
-        .counter-label {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .memory-wall {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .memory-wall h3 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-        }
-
-        .memory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .memory-item {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            border-left: 4px solid #ff6b9d;
-            transition: all 0.3s ease;
-        }
-
-        .memory-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .floating-hearts {
-            position: absolute;
+        .hearts {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            overflow: hidden;
+            z-index: 1;
         }
 
         .heart {
             position: absolute;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 20px;
-            animation: float 6s infinite linear;
+            animation: floating 6s infinite ease-in-out;
         }
 
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 50px;
-            padding: 15px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        @keyframes floating {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-10vh) rotate(180deg); }
         }
 
-        .music-player:hover {
-            transform: scale(1.1);
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
 
-        .upload-btn {
-            background: linear-gradient(45deg, #ff6b9d, #c44569);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s ease;
+        .header {
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .upload-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        #file-input {
-            display: none;
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
@@ -272,329 +84,323 @@
             50% { transform: scale(1.05); }
         }
 
-        @keyframes float {
-            from {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .love-message {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .love-text {
+            font-size: 1.2rem;
+            color: #fff;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-style: italic;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .photo-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .photo-card:hover {
+            transform: perspective(1000px) rotateY(5deg) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo:hover {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-style: italic;
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .play-button.playing {
+            animation: musicPulse 1s infinite;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .signature {
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .signature-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
             .title {
                 font-size: 2.5rem;
             }
             
-            .photo-container {
-                width: 200px;
-                height: 200px;
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .music-control {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="floating-hearts" id="hearts-container"></div>
+    <div class="hearts" id="heartsContainer"></div>
     
     <div class="container">
-        <header>
-            <h1 class="title">The Love</h1>
-            <p class="subtitle">Kasih Sayang yang Tak Pernah Pudar</p>
+        <header class="header">
+            <h1 class="title">Untuk Lya ❤️</h1>
+            <p class="subtitle">Cinta yang Bersemi di Hatiku</p>
         </header>
 
-        <div class="main-content">
-            <div class="love-card photo-section">
-                <div class="photo-container">
-                    <div class="photo-placeholder" onclick="document.getElementById('file-input').click()">
-                        📷<br>Klik untuk upload<br>foto kesayangan
-                    </div>
-                    <img class="uploaded-photo" id="uploaded-photo" alt="Foto Kesayangan">
-                </div>
-                <button class="upload-btn" onclick="document.getElementById('file-input').click()">
-                    Ganti Foto
-                </button>
-                <input type="file" id="file-input" accept="image/*">
-            </div>
+        <div class="love-message">
+            <p class="love-text">
+                Hai cantikku Lya... ❤️<br><br>
+                
+                Tau gak sih, dari pertama kali mata kita bertemu, rasanya dunia berhenti berputar sejenak. 
+                Kamu itu kayak sinar matahari yang menerangi hari-hari kelabuku, bikin semua jadi lebih berwarna dan bermakna.<br><br>
+                
+                Setiap senyummu itu kayak bunga yang mekar di musim semi, bikin hati ini berbunga-bunga terus. 
+                Ketawamu yang renyah itu bisa bikin mood jelek langsung ilang, serius deh! 😊<br><br>
+                
+                Aku gak pandai merangkai kata-kata puitis, tapi yang pasti... 
+                kamu udah jadi bagian terpenting dalam hidup ini. Kamu itu rumah yang paling nyaman buat pulang, 
+                tempat hati ini merasa aman dan tenang.<br><br>
+                
+                I love you so much, Lya... ❤️✨
+            </p>
+        </div>
 
-            <div class="love-card love-message">
-                <h3>💕 Pesan Cinta</h3>
-                <p>Di setiap detik yang berlalu, cinta ini semakin menguat. Seperti bintang yang bersinar di malam gelap, kehadiranmu memberikan cahaya dalam hidupku.</p>
-                <br>
-                <p>Tidak ada kata yang cukup untuk mengungkapkan betapa berartinya dirimu. Setiap senyuman, setiap tawa, setiap momen bersamamu adalah hadiah terindah yang pernah kuterima.</p>
-                <br>
-                <p><em>"Cinta sejati tidak pernah berakhir, ia hanya tumbuh semakin dalam seiring berjalannya waktu."</em></p>
+        <div class="photo-gallery">
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="WhatsApp Image 2025-07-24 at 04.43.17.jpeg" alt="Lya cantikku" class="photo">
+                </div>
+                <p class="photo-caption">Senyummu yang bikin dunia jadi lebih cerah ✨</p>
+            </div>
+            
+            <div class="photo-card">
+                <div class="photo-frame">
+                    <img src="WhatsApp Image 2025-07-24 at 04.44.04.jpeg" alt="Lya tersayang" class="photo">
+                </div>
+                <p class="photo-caption">Cantik banget, bikin jatuh cinta berkali-kali 💕</p>
             </div>
         </div>
 
-        <div class="counter-section">
-            <h3 style="color: #2c3e50; margin-bottom: 20px;">⏰ Waktu Bersama Kita</h3>
-            <div class="counter">
-                <div class="counter-item">
-                    <span class="counter-number" id="days">0</span>
-                    <span class="counter-label">Hari</span>
-                </div>
-                <div class="counter-item">
-                    <span class="counter-number" id="hours">0</span>
-                    <span class="counter-label">Jam</span>
-                </div>
-                <div class="counter-item">
-                    <span class="counter-number" id="minutes">0</span>
-                    <span class="counter-label">Menit</span>
-                </div>
-                <div class="counter-item">
-                    <span class="counter-number" id="seconds">0</span>
-                    <span class="counter-label">Detik</span>
-                </div>
-            </div>
+        <div class="love-message">
+            <p class="love-text">
+                Setiap hari bersamamu itu kayak mimpi yang gak mau berakhir. 
+                Kamu bikin aku percaya kalau cinta sejati itu beneran ada. 
+                Dan aku bersyukur banget bisa nemuin cinta sejati itu di dirimu, Lya.<br><br>
+                
+                Semoga kita bisa terus bersama sampai tua nanti, 
+                saling berbagi tawa, air mata, dan semua cerita indah dalam hidup ini. 
+                Aku janji akan selalu jaga hatimu dan bikin kamu bahagia setiap hari.<br><br>
+                
+                Te amo para siempre, mi amor... 💕
+            </p>
         </div>
 
-        <div class="features-section">
-            <div class="feature-card" onclick="showLoveQuote()">
-                <span class="feature-icon">💌</span>
-                <h4 class="feature-title">Kata-kata Cinta</h4>
-                <p>Kumpulan kata romantis untuk mengungkapkan perasaan</p>
-            </div>
-
-            <div class="feature-card" onclick="createHeart()">
-                <span class="feature-icon">❤️</span>
-                <h4 class="feature-title">Kirim Cinta</h4>
-                <p>Kirim hati virtual sebagai tanda kasih sayang</p>
-            </div>
-
-            <div class="feature-card" onclick="playLoveSound()">
-                <span class="feature-icon">🎵</span>
-                <h4 class="feature-title">Melodi Cinta</h4>
-                <p>Dengarkan suara romantis untuk suasana hati</p>
-            </div>
-
-            <div class="feature-card" onclick="showMemory()">
-                <span class="feature-icon">📝</span>
-                <h4 class="feature-title">Kenangan Indah</h4>
-                <p>Tambahkan momen spesial yang tak terlupakan</p>
-            </div>
-        </div>
-
-        <div class="memory-wall">
-            <h3>🌟 Dinding Kenangan</h3>
-            <div class="memory-grid" id="memory-grid">
-                <div class="memory-item">
-                    <strong>Pertemuan Pertama</strong><br>
-                    <small>Saat mata kita bertemu untuk pertama kali, aku tahu ada yang istimewa</small>
-                </div>
-                <div class="memory-item">
-                    <strong>Senyuman Terindah</strong><br>
-                    <small>Senyumanmu adalah obat untuk segala lelah dan sedih</small>
-                </div>
-                <div class="memory-item">
-                    <strong>Janji Setia</strong><br>
-                    <small>Berjanji untuk selalu ada dalam suka dan duka</small>
-                </div>
-            </div>
+        <div class="signature">
+            <p class="signature-text">
+                Dengan cinta yang terdalam,<br>
+                Fuad ❤️
+            </p>
         </div>
     </div>
 
-    <div class="music-player" onclick="toggleMusic()">
-        <span id="music-icon">🎵</span> <span id="music-text">Play Music</span>
+    <div class="music-control">
+        <button class="play-button" id="playButton" title="Putar musik romantis">
+            ▶️
+        </button>
     </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="nadhif basalamah - penjaga hati (Official Music Video).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
-        // File upload functionality
-        document.getElementById('file-input').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const uploadedPhoto = document.getElementById('uploaded-photo');
-                    const placeholder = document.querySelector('.photo-placeholder');
-                    
-                    uploadedPhoto.src = e.target.result;
-                    uploadedPhoto.style.display = 'block';
-                    placeholder.style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
         // Floating hearts animation
-        function createFloatingHeart() {
+        function createHeart() {
             const heart = document.createElement('div');
-            heart.className = 'heart';
+            heart.classList.add('heart');
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            
-            document.getElementById('hearts-container').appendChild(heart);
-            
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('heartsContainer').appendChild(heart);
+
             setTimeout(() => {
                 heart.remove();
             }, 6000);
         }
 
-        // Create heart on demand
-        function createHeart() {
-            for(let i = 0; i < 5; i++) {
-                setTimeout(() => createFloatingHeart(), i * 200);
-            }
-        }
+        // Create hearts periodically
+        setInterval(createHeart, 800);
 
-        // Auto create hearts periodically
-        setInterval(createFloatingHeart, 3000);
-
-        // Love counter (from a specific date)
-        const startDate = new Date('2024-01-01T00:00:00'); // Ganti dengan tanggal yang diinginkan
-        
-        function updateCounter() {
-            const now = new Date();
-            const diff = now - startDate;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-        }
-        
-        updateCounter();
-        setInterval(updateCounter, 1000);
-
-        // Love quotes
-        const loveQuotes = [
-            "Cinta adalah ketika kamu menemukan seseorang yang membuatmu ingin menjadi versi terbaik dari dirimu sendiri.",
-            "Di antara milyaran orang di dunia ini, hatiku memilih dirimu.",
-            "Setiap hari bersamamu adalah hari terbaik dalam hidupku.",
-            "Cinta sejati bukan tentang kesempurnaan, tapi tentang menerima ketidaksempurnaan dengan tulus.",
-            "Kamu adalah jawaban dari doa-doa yang tak pernah kuucapkan."
-        ];
-
-        function showLoveQuote() {
-            const randomQuote = loveQuotes[Math.floor(Math.random() * loveQuotes.length)];
-            alert("💕 " + randomQuote);
-        }
-
-        // Memory function
-        function showMemory() {
-            const memory = prompt("Tuliskan kenangan indah yang ingin kamu tambahkan:");
-            if (memory) {
-                const memoryGrid = document.getElementById('memory-grid');
-                const memoryItem = document.createElement('div');
-                memoryItem.className = 'memory-item';
-                memoryItem.innerHTML = `<strong>Kenangan Baru</strong><br><small>${memory}</small>`;
-                memoryGrid.appendChild(memoryItem);
-            }
-        }
-
-        // Music player
+        // Music control
+        const playButton = document.getElementById('playButton');
+        const backgroundMusic = document.getElementById('backgroundMusic');
         let isPlaying = false;
-        function toggleMusic() {
-            const icon = document.getElementById('music-icon');
-            const text = document.getElementById('music-text');
-            
-            if (!isPlaying) {
-                icon.textContent = '⏸️';
-                text.textContent = 'Pause Music';
-                isPlaying = true;
-                // Simulate music playing
-                alert("🎵 Memulai melodi cinta... (Fitur musik akan segera hadir)");
-            } else {
-                icon.textContent = '🎵';
-                text.textContent = 'Play Music';
+
+        playButton.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                playButton.innerHTML = '▶️';
+                playButton.classList.remove('playing');
                 isPlaying = false;
-            }
-        }
-
-        // Love sound effect
-        function playLoveSound() {
-            // Create a simple sound effect using Web Audio API
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.5);
-            
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.5);
-            
-            // Show romantic message
-            setTimeout(() => {
-                alert("💖 Suara cinta untukmu... semoga bisa menghangatkan hatimu");
-            }, 600);
-        }
-
-        // Add some interactive effects
-        document.addEventListener('click', function(e) {
-            // Create small hearts on click
-            if (Math.random() > 0.7) {
-                const heart = document.createElement('div');
-                heart.style.position = 'fixed';
-                heart.style.left = e.clientX + 'px';
-                heart.style.top = e.clientY + 'px';
-                heart.style.color = '#ff6b9d';
-                heart.style.fontSize = '14px';
-                heart.style.pointerEvents = 'none';
-                heart.style.zIndex = '1000';
-                heart.innerHTML = '💕';
-                heart.style.animation = 'float 2s ease-out forwards';
-                
-                document.body.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 2000);
+            } else {
+                backgroundMusic.play().then(() => {
+                    playButton.innerHTML = '⏸️';
+                    playButton.classList.add('playing');
+                    isPlaying = true;
+                }).catch((error) => {
+                    console.log('Audio play failed:', error);
+                    alert('Mohon izinkan pemutaran audio untuk pengalaman yang lebih romantis 💕');
+                });
             }
         });
+
+        // Handle audio end
+        backgroundMusic.addEventListener('ended', function() {
+            playButton.innerHTML = '▶️';
+            playButton.classList.remove('playing');
+            isPlaying = false;
+        });
+
+        // Add some interactive elements
+        document.querySelectorAll('.photo-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'perspective(1000px) rotateY(10deg) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateY(0deg) scale(1)';
+            });
+        });
+
+        // Add sparkle effect on click
+        document.addEventListener('click', function(e) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkleEffect 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 1000);
+        });
+
+        // Add sparkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleEffect {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+                100% { transform: scale(0) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
-
-<div class="love-card">
-    <h2>Simpan Pesan Cintamu</h2>
-    <form action="save-message.php" method="POST">
-        <textarea 
-            name="message" 
-            placeholder="Tulis pesan cintamu yang abadi..."
-            style="width:100%; height:150px; padding:15px; border:2px solid #ff6b9d; border-radius:10px"
-            required
-        ></textarea>
-        <button 
-            type="submit"
-            style="background:#ff6b9d; color:white; border:none; padding:12px 30px; border-radius:25px; margin-top:15px; cursor:pointer"
-        >
-            💖 Simpan untuk Selamanya
-        </button>
-    </form>
-    .love-card::after {
-        content: '❤️ Pesan Tersimpan!';
-        position: absolute;
-        bottom: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #ff6b9d;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 25px;
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-    
-    .love-card:focus-within::after {
-        opacity: 1;
-        bottom: -30px;
-    }
-</div>
