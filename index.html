@@ -562,3 +562,39 @@
     </script>
 </body>
 </html>
+
+<div class="love-card">
+    <h2>Simpan Pesan Cintamu</h2>
+    <form action="save-message.php" method="POST">
+        <textarea 
+            name="message" 
+            placeholder="Tulis pesan cintamu yang abadi..."
+            style="width:100%; height:150px; padding:15px; border:2px solid #ff6b9d; border-radius:10px"
+            required
+        ></textarea>
+        <button 
+            type="submit"
+            style="background:#ff6b9d; color:white; border:none; padding:12px 30px; border-radius:25px; margin-top:15px; cursor:pointer"
+        >
+            💖 Simpan untuk Selamanya
+        </button>
+    </form>
+    .love-card::after {
+        content: '❤️ Pesan Tersimpan!';
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff6b9d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .love-card:focus-within::after {
+        opacity: 1;
+        bottom: -30px;
+    }
+</div>
